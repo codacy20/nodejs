@@ -112,7 +112,7 @@ export default function createHttpMiddleware({
         ? JSON.stringify(request.body || undefined)
         : request.body
         
-    if (typeof body === 'string' || Buffer.isBuffer(request.body)) {
+    if (typeof request.body === 'string' || Buffer.isBuffer(request.body)) {
       requestHeader['Content-Length'] = Buffer.byteLength(body).toString()
     }
     const fetchOptions: RequestOptions = {
